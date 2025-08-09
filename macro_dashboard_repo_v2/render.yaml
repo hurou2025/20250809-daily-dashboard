@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: macro-dashboard
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:server
+    healthCheckPath: /
+    envVars:
+      - key: TE_API_CLIENT_KEY
+        sync: false
+      - key: TE_API_CLIENT_SECRET
+        sync: false
+      - key: DEEPL_API_KEY
+        sync: false
+      - key: SENDGRID_API_KEY
+        sync: false
+      - key: EMAIL_SENDER
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
